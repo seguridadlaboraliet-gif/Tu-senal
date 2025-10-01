@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tu señal ✨</title>
+  <style>
+    html,body{
+      height:100%; margin:0; display:grid; place-items:center;
+      background:#f7f7fb; font-family:Arial, sans-serif
+    }
+    .card{
+      background:rgba(255,255,255,.9);
+      border-radius:24px;
+      box-shadow:0 10px 25px rgba(0,0,0,.15);
+      padding:20px;
+      text-align:center;
+      max-width:95vw
+    }
+    img{
+      max-width:100%;
+      border-radius:16px;
+      box-shadow:0 6px 16px rgba(0,0,0,.2)
+    }
+    .footer{
+      margin-top:14px;
+      font-size:16px;
+      font-weight:bold;
+      color:#333;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Forzamos a que cargue la versión actualizada del logo con ?v=2 -->
+    <img id="fraseImg" alt="Tu señal" src="img/logo.png?v=2" />
+    <div class="footer">✨ Tu señal del día</div>
+  </div>
+
+  <script>
+    // Genera automáticamente rutas img/01.jpg hasta img/50.jpg
+    const IMAGENES = Array.from({length: 50}, (_, i) => `img/${String(i+1).padStart(2,'0')}.jpg`);
+
+    function mostrarImagenAleatoria(){
+      const idx = Math.floor(Math.random() * IMAGENES.length);
+      document.getElementById('fraseImg').src = IMAGENES[idx] + '?v=2';
+    }
+    mostrarImagenAleatoria();
+  </script>
+</body>
+</html>
